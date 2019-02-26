@@ -1,0 +1,228 @@
+{% load static from staticfiles  %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Temp</title>
+    <link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
+    <link rel="stylesheet" href="{% static 'css/materialize.css' %}">
+    <link rel="stylesheet" href="{% static 'css/materialize.min.css' %}">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+
+<body bgcolor="black" class="has-fixed-sidenav">
+
+    <header>
+
+
+
+
+
+
+
+      <div class="navbar-fixed">
+         <nav class="navbar white">
+          <div class="nav-wrapper"><a href="#!" class="brand-logo grey-text text-darken-4">Home</a>
+            <ul id="nav-mobile" class="right">
+              <li class="hide-on-med-and-down"><a href="">Buy Now!</a></li>
+
+
+            </ul><a href="#!" data-target="sidenav-left" class="sidenav-trigger left"><i class="material-icons black-text">menu</i></a>
+          </div>
+        </nav>
+      </div>
+
+
+      <ul id="sidenav-left" class="sidenav sidenav-fixed" style="transform: translateX(-105%);">
+        <li><a href="/pages/admin-dashboard" class="logo-container">Admin<i class="material-icons left">spa</i></a></li>
+        <li class="no-padding">
+          <ul class="collapsible collapsible-accordion">
+            <li class="bold waves-effect active"><a class="collapsible-header" tabindex="0">Pages<i class="material-icons chevron">chevron_left</i></a>
+              <div class="collapsible-body" style="display: block;">
+                <ul>
+                  <li><a href="/pages/admin-dashboard" class="waves-effect active">Dashboard<i class="material-icons">web</i></a></li>
+                  <li><a href="/pages/admin-fixed-chart" class="waves-effect">Fixed Chart<i class="material-icons">list</i></a></li>
+                  <li><a href="/pages/admin-grid" class="waves-effect">Grid<i class="material-icons">dashboard</i></a></li>
+                  <li><a href="/pages/admin-chat" class="waves-effect">Chat<i class="material-icons">chat</i></a></li>
+                </ul>
+              </div>
+            </li>
+            <li class="bold waves-effect"><a class="collapsible-header" tabindex="0">Account<i class="material-icons chevron">chevron_left</i></a>
+              <div class="collapsible-body">
+                <ul>
+                  <li><a href="/pages/admin-log-in" class="waves-effect">Log In<i class="material-icons">person</i></a></li>
+                  <li><a href="/pages/admin-settings" class="waves-effect">Settings<i class="material-icons">settings</i></a></li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </li>
+      </ul>
+
+
+
+    </header>
+
+
+
+
+
+
+
+
+
+
+
+
+<main>
+
+    <div class="container">
+      <div class="masonry row" style="position: relative; height: 3238.31px;">
+        <div class="col s12" style="position: absolute; left: 0px; top: 0px;">
+          <h2>Dashboard</h2>
+        </div>
+        <div class="col l3 m6 s12" style="position: absolute; left: 0px; top: 107px;">
+
+          <div class="card">
+            <div class="card-stacked">
+              <div class="card-metrics card-metrics-static">
+                <div class="card-metric">
+                  <div class="card-metric-title">Revenue</div>
+                  <div class="card-metric-value">$12,476.00</div>
+                  <div class="card-metric-change increase">
+                    <i class="material-icons left">keyboard_arrow_up</i>
+                    12%
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card-chart"><div class="chartjs-size-monitor" style="position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;"><div class="chartjs-size-monitor-expand" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:1000000px;height:1000000px;left:0;top:0"></div></div><div class="chartjs-size-monitor-shrink" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:200%;height:200%;left:0; top:0"></div></div></div>
+              <canvas id="flush-area-chart-blue" height="299" width="1058" class="chartjs-render-monitor" style="display: block; height: 100px; width: 353px;"></canvas>
+            </div>
+          </div>
+
+        </div>
+        <div class="col l3 m6 s12" style="position: absolute; left: 0px; top: 358px;">
+          <div class="card">
+            <div class="card-stacked">
+              <div class="card-metrics card-metrics-static">
+                <div class="card-metric">
+                  <div class="card-metric-title">Clicks</div>
+                  <div class="card-metric-value">11,893</div>
+                  <div class="card-metric-change increase">
+                    <i class="material-icons left">keyboard_arrow_up</i>
+                    8%
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card-chart"><div class="chartjs-size-monitor" style="position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;"><div class="chartjs-size-monitor-expand" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:1000000px;height:1000000px;left:0;top:0"></div></div><div class="chartjs-size-monitor-shrink" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:200%;height:200%;left:0; top:0"></div></div></div>
+              <canvas id="flush-area-chart-yellow" height="299" width="1058" class="chartjs-render-monitor" style="display: block; height: 100px; width: 353px;"></canvas>
+            </div>
+          </div>
+
+        </div>
+        <div class="col l3 m6 s12" style="position: absolute; left: 0px; top: 610px;">
+
+          <div class="card">
+            <div class="card-stacked">
+              <div class="card-metrics card-metrics-static">
+                <div class="card-metric">
+                  <div class="card-metric-title">Users</div>
+                  <div class="card-metric-value">230,648</div>
+                  <div class="card-metric-change decrease">
+                    <i class="material-icons left">keyboard_arrow_down</i>
+                    2%
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card-chart"><div class="chartjs-size-monitor" style="position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;"><div class="chartjs-size-monitor-expand" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:1000000px;height:1000000px;left:0;top:0"></div></div><div class="chartjs-size-monitor-shrink" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:200%;height:200%;left:0; top:0"></div></div></div>
+              <canvas id="flush-area-chart-pink" height="299" width="1058" class="chartjs-render-monitor" style="display: block; height: 100px; width: 353px;"></canvas>
+            </div>
+          </div>
+
+        </div>
+        <div class="col l3 m6 s12" style="position: absolute; left: 0px; top: 861px;">
+
+          <div class="card">
+            <div class="card-stacked">
+              <div class="card-metrics card-metrics-static">
+                <div class="card-metric">
+                  <div class="card-metric-title">Conversion Rate</div>
+                  <div class="card-metric-value">0.24%</div>
+                  <div class="card-metric-change decrease">
+                    <i class="material-icons left">keyboard_arrow_down</i>
+                    9%
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card-chart"><div class="chartjs-size-monitor" style="position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;"><div class="chartjs-size-monitor-expand" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:1000000px;height:1000000px;left:0;top:0"></div></div><div class="chartjs-size-monitor-shrink" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:200%;height:200%;left:0; top:0"></div></div></div>
+              <canvas id="flush-area-chart-green" height="299" width="1058" class="chartjs-render-monitor" style="display: block; height: 100px; width: 353px;"></canvas>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="col s12" style="position: absolute; left: 0px; top: 1112px;">
+
+          <div class="card">
+            <div class="card-metrics card-metrics-toggle card-metrics-centered">
+              <div class="card-metric waves-effect active" data-metric="revenue">
+                <div class="card-metric-title">Revenue</div>
+                <div class="card-metric-value">$12,476.00</div>
+                <div class="card-metric-change">
+                  <i class="material-icons">keyboard_arrow_up</i>
+                  12%
+                </div>
+              </div>
+              <div class="card-metric waves-effect" data-metric="users">
+                <div class="card-metric-title">Users</div>
+                <div class="card-metric-value">2024</div>
+                <div class="card-metric-change">
+                  <i class="material-icons">keyboard_arrow_up</i>
+                  9%
+                </div>
+              </div>
+              <div class="card-metric waves-effect" data-metric="ctr">
+                <div class="card-metric-title">CTR</div>
+                <div class="card-metric-value">0.20%</div>
+                <div class="card-metric-change">
+                  <i class="material-icons">keyboard_arrow_up</i>
+                  4%
+                </div>
+              </div>
+            </div>
+            <div class="card-content"><div class="chartjs-size-monitor" style="position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;"><div class="chartjs-size-monitor-expand" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:1000000px;height:1000000px;left:0;top:0"></div></div><div class="chartjs-size-monitor-shrink" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:200%;height:200%;left:0; top:0"></div></div></div>
+              <canvas class="card-chart chartjs-render-monitor" id="main-toggle-line-chart" width="914" height="1199" style="display: block; height: 400px; width: 305px;"></canvas>
+            </div>
+          </div>
+
+        </div>
+
+
+      </div>
+    </div>
+
+</main>
+
+    <script type="text/javascript" src="{% static 'js/jquery-3.3.1.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/Chart.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/materialize.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/materialize.min.js' %}"></script>
+
+
+    <script>
+        M.AutoInit();
+        $(document).ready(function(){
+            $('.sidenav').sidenav();
+        });
+        $(document).ready(function(){
+            $('.collapsible').collapsible();
+        });
+    </script>
+ </body>
+</html>

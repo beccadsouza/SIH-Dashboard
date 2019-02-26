@@ -1,0 +1,155 @@
+{% load static from staticfiles  %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Temp</title>
+    <link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
+    <link rel="stylesheet" href="{% static 'css/materialize.css' %}">
+    <link rel="stylesheet" href="{% static 'css/materialize.min.css' %}">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        .rotate{
+            -moz-transition: all 50ms linear;
+            -webkit-transition: all 50ms linear;
+            transition: all 50ms linear;
+        }
+
+        .rotate.down{
+            -moz-transform:rotate(-90deg);
+            -webkit-transform:rotate(-90deg);
+            transform:rotate(-90deg);
+        }
+    </style>
+</head>
+
+
+<body bgcolor="#ffb6c1">
+
+    <header>
+
+      <div class="navbar-fixed">
+         <nav class="navbar white">
+          <div class="nav-wrapper">
+            <a href="#!" class="brand-logo grey-text text-darken-4 center">...</a>
+            <a href="{% url 'logout' %}" class="grey-text text-darken-4 right" style="margin-right: 10px">Log Out</a>
+            <a href="#!" data-target="sidenav-left" class="sidenav-trigger left">
+              <i class="material-icons black-text">menu</i>
+            </a>
+          </div>
+        </nav>
+      </div>
+      <ul id="sidenav-left" class="sidenav sidenav-fixed" style="transform: translateX(-105%);">
+          <li>
+                    <div class="user-view">
+                        <div class="background">
+                            <img src="{% static 'img/dp_bg.png' %}">
+                        </div>
+                        <a href="#user"><img class="circle materialboxed" width="650" src="{% static 'img/admin.png' %}"></a>
+                        <a href="#name"><span class="white-text name">Poojan Turakhia</span></a>
+                        <a href="#email"><span class="white-text email">poojan.turakhia@gmail.com</span></a>
+                    </div>
+          </li>
+
+
+            <li>
+                <a href="#myChart1"><i class="material-icons">show_chart</i>First Link</a>
+            </li>
+            <li>
+                <a href="#myChart2"><i class="material-icons">equalizer</i>Second Link</a>
+            </li>
+            <li>
+                <a href="#!"><i class="material-icons">multiline_chart</i>Third Link</a>
+            </li>
+            <li>
+                <a href="#!"><i class="material-icons">pie_chart</i>Fourth Link</a>
+            </li>
+            <li>
+                <div class="divider"></div>
+            </li>
+            <li>
+                <a class="subheader">Subheader</a>
+            </li>
+            <li>
+                <a class="waves-effect" href="#!">Waves Waves Waves</a>
+            </li>
+
+           <ul class="collapsible">
+                <li>
+                  <div class="collapsible-header" id="one">First Collapse
+                      <i class="material-icons chevron rotate">chevron_left</i>
+                  </div>
+                  <div class="collapsible-body">
+               <ul>
+                       <li>
+                            <a href="#!"><i class="material-icons">show_chart</i>First Link</a>
+                        </li>
+                        <li>
+                            <a href="#!"><i class="material-icons">equalizer</i>Second Link</a>
+                        </li>
+               </ul>
+                  </div>
+                </li>
+          </ul>
+
+
+      </ul>
+    </header>
+
+    <main>
+
+        <div class="row">
+            <div class="col l3 blue"></div>
+
+            <div class="col m12 l9 green" style="margin-left: -30px">
+              <div style="position: relative;">
+                <div class="col s12 center" style="position: absolute; left:0px; top: 0px;">
+                  <h4>Sample Graph</h4>
+                  <canvas id="myChart1" width="1000" style="background-color: white"></canvas><br>
+                  <canvas id="myChart2" width="1000" style="background-color: white"></canvas><br>
+                  <canvas id="myChart3" width="1000" style="background-color: white"></canvas><br>
+                </div>
+              </div>
+            </div>
+
+        </div>
+    </main>
+
+
+
+
+    <script type="text/javascript" src="{% static 'js/jquery-3.3.1.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/Chart.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/materialize.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/materialize.min.js' %}"></script>
+    <script>
+        M.AutoInit();
+        $(document).ready(function(){
+          $(".rotate").click(function(){
+             $(this).toggleClass("down") ;
+          })
+        });
+    </script>
+    <script>
+        $.get('{% url "json" %}', function(data) {
+                let ctx = $("#myChart1").get(0).getContext("2d");
+                new Chart(ctx, {
+                type: 'line', data: data
+            });
+        });
+        $.get('{% url "json" %}', function(data) {
+                let ctx = $("#myChart2").get(0).getContext("2d");
+                new Chart(ctx, {
+                type: 'line', data: data
+            });
+        });
+         $.get('{% url "json" %}', function(data) {
+                let ctx = $("#myChart3").get(0).getContext("2d");
+                new Chart(ctx, {
+                type: 'line', data: data
+            });
+        });
+    </script>
+ </body>
+</html>

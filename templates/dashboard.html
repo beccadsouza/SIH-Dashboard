@@ -1,0 +1,40 @@
+{% load static from staticfiles  %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <link rel="stylesheet" href="{% static 'css/materialize.css' %}">
+    <link rel="stylesheet" href="{% static 'css/materialize.min.css' %}">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+</head>
+<body>
+    <a href="{% url 'logout' %}">LOGOUT</a>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-xs-12" style="margin-top:30px;margin-bottom: 30px">
+                <h3 style="text-align: center">
+                    <a href="{% url "json" %}" target="_blank" style="text-decoration: none !important;">
+                        Sample Graph
+                    </a>
+                </h3><br>
+                <div style="display: flex;justify-content: center;align-items: center;">
+                    <canvas id="myChart" width="1000"></canvas>
+                </div>
+            </div>
+        </div>
+    </div><br><br>
+
+    <script type="text/javascript" src="{% static 'js/jquery-3.3.1.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/Chart.min.js' %}"></script>
+    <script type="text/javascript">
+        $.get('{% url "json" %}', function(data) {
+                let ctx = $("#myChart").get(0).getContext("2d");
+                new Chart(ctx, {
+                type: 'line', data: data
+            });
+        });
+    </script>
+</body>
+</html>
