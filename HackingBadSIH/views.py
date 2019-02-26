@@ -17,10 +17,19 @@ class LineChartJSONView(BaseLineChartView):
 				list(np.random.rand(7,)),
 				list(np.random.rand(7,)),]
 
+
 @login_required(login_url='/accounts/login')
 def dashboard(request):
 	return render(request, 'temp.html')
 
-def json():
+def json1():
+	line_chart_json = LineChartJSONView.as_view()
+	return line_chart_json
+
+def json2():
+	line_chart_json = LineChartJSONView.as_view()
+	return line_chart_json
+
+def json3():
 	line_chart_json = LineChartJSONView.as_view()
 	return line_chart_json
