@@ -10,6 +10,7 @@ urlpatterns = [
 	url(r'admin/', admin.site.urls),
 	url(r'accounts/', include('django.contrib.auth.urls')),
 	url(r'^dashboard/', views.dashboard, name='dashboard'),
+	url(r'^bye/', views.bye, name='bye'),
 	url(r'^json1/$', views.json1(), name='json1'),
 	url(r'^json2/$', views.json2(), name='json2'),
 	url(r'^json3/$', views.json3(), name='json3'),

@@ -33,3 +33,6 @@ def json2():
 def json3():
 	line_chart_json = LineChartJSONView.as_view()
 	return line_chart_json
+
+def bye(request):
+	return render(request, 'bye.html')

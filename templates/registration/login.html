@@ -6,14 +6,34 @@
     <title>Home</title>
     <link rel="stylesheet" href="{% static 'css/materialize.css' %}">
     <link rel="stylesheet" href="{% static 'css/materialize.min.css' %}">
+    <style>
+        html, body, div{
+          height: 100%;
+        }
+    </style>
 </head>
 <body>
-    <form class="site-form" action="{% url 'login' %}" method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <input type="submit" value="Login">
-    </form>
+
+    <div class="container valign-wrapper">
+        <form class="site-form" action="{% url 'login' %}" method="post">
+            {% csrf_token %}
+            {% for field in form %}
+                <div>
+                    <p>{{ field.label_tag }}</p>
+                    <p>{{ field }}</p>
+                </div>
+            {% endfor %}
+            <input type="submit" value="Login">
+        </form>
+    </div>
+
+
     <script type="text/javascript" src="{% static 'js/jquery-3.3.1.js' %}"></script>
     <script type="text/javascript" src="{% static 'js/Chart.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/materialize.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/materialize.min.js' %}"></script>
+    <script>
+        M.AutoInit();
+    </script>
 </body>
 </html>

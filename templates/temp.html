@@ -21,6 +21,9 @@
             -webkit-transform:rotate(-90deg);
             transform:rotate(-90deg);
         }
+        html, body, div{
+          height: 100%;
+        }
     </style>
 </head>
 
@@ -135,13 +138,13 @@
         $.get('{% url "json1" %}', function(data) {
                 let ctx = $("#myChart1").get(0).getContext("2d");
                 new Chart(ctx, {
-                type: 'line', data: data
+                type: 'bar', data: data
             });
         });
         $.get('{% url "json2" %}', function(data) {
                 let ctx = $("#myChart2").get(0).getContext("2d");
                 new Chart(ctx, {
-                type: 'bar', data: data
+                type: 'line', data: data
             });
         });
          $.get('{% url "json3" %}', function(data) {
