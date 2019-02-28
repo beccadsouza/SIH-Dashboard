@@ -6,28 +6,46 @@
     <title>Home</title>
     <link rel="stylesheet" href="{% static 'css/materialize.css' %}">
     <link rel="stylesheet" href="{% static 'css/materialize.min.css' %}">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <style>
         html, body, div{
           height: 100%;
         }
+        .input-field input:focus + label {
+            color: #283593 !important;
+        }
+        .input-field input:focus {
+            border-bottom: 1px solid #283593 !important;
+            box-shadow: 0 1px 0 0 #283593 !important
+        }
+
+        .input-field .prefix.active {
+            color: #283593;
+        }
     </style>
 </head>
-<body>
-
+<body style="background-image:url({% static 'img/login.jpg' %});background-repeat: no-repeat;background-size: 100%">
     <div class="container valign-wrapper">
-        <form class="site-form" action="{% url 'login' %}" method="post">
+        <form class="site-form center-block" action="{% url 'login' %}" method="post">
             {% csrf_token %}
-            {% for field in form %}
-                <div>
-                    <p>{{ field.label_tag }}</p>
-                    <p>{{ field }}</p>
+            <div class="card black white-text" style="padding: 50px">
+                <h4 class="center-align indigo-text text-darken-2">Admin Login</h4><br>
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">face</i>
+                    <input type="text" name="username" class="validate" id="id_username" style="color:white" required>
+                    <label for="id_username">Username</label>
                 </div>
-            {% endfor %}
-            <input type="submit" value="Login">
+                 <div class="input-field col s12">
+                     <i class="material-icons prefix">enhanced_encryption</i>
+                     <input type="password" name="password" class="validate" id="id_password" style="color: white" required>
+                     <label for="id_password">Password:</label>
+                 </div>
+                 <div class="input-field col s6 center-align">
+                     <input type="submit" value="Login" class="btn indigo darken-4" style="width: 100%">
+                 </div>
+             </div>
         </form>
     </div>
-
-
     <script type="text/javascript" src="{% static 'js/jquery-3.3.1.js' %}"></script>
     <script type="text/javascript" src="{% static 'js/Chart.min.js' %}"></script>
     <script type="text/javascript" src="{% static 'js/materialize.js' %}"></script>
@@ -37,3 +55,12 @@
     </script>
 </body>
 </html>
+
+
+
+{#            {% for field in form %}#}
+{#                <div>#}
+{#                    <p>{{ field.label_tag }}</p>#}
+{#                    <p>{{ field }}</p>#}
+{#                </div>#}
+{#            {% endfor %}#}

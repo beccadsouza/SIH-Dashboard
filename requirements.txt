@@ -1,1 +1,3 @@
-libapache2-mod-wsgi-py3
+django
+django-chartjs
+chartjs

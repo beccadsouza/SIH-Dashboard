@@ -1,40 +1,153 @@
 {% load static from staticfiles  %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <title>Home</title>
+    <title>Dashboard - Admin</title>
+    <link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
     <link rel="stylesheet" href="{% static 'css/materialize.css' %}">
     <link rel="stylesheet" href="{% static 'css/materialize.min.css' %}">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
+    <style>
+        html, body, div{
+          height: 100%;
+        }
+    </style>
 </head>
-<body>
-    <a href="{% url 'logout' %}">LOGOUT</a>
-    <div class="container">
+
+
+<body  style="background-color: #deedff">
+
+    <header>
+        <div class="navbar-fixed">
+         <nav class="navbar blue darken-2">
+          <div class="nav-wrapper">
+            <a href="" class="brand-logo white-text center">Welcome Admin</a>
+            <a href="{% url 'logout' %}" class="light-blue-text text-darken-3 right btn white" style="font-weight:bold;margin-right:30px;margin-top: 15px">Log Out</a>
+            <a href="" data-target="sidenav-left" class="sidenav-trigger left">
+              <i class="material-icons black-text">menu</i>
+            </a>
+          </div>
+        </nav>
+      </div>
+
+      <ul id="sidenav-left" class="sidenav sidenav-fixed light-blue darken-4" style="transform: translateX(-105%);">
+          <li>
+                    <div class="user-view">
+                        <div class="background">
+                            <img src="{% static 'img/bg.jpeg' %}" alt="">
+                        </div>
+                        <a href=""><img class="circle materialboxed" width="650" alt="" src="{% static 'img/admin.png' %}"></a>
+                        <a href=""><span class="white-text name">Poojan Turakhia</span></a>
+                        <a href=""><span class="white-text email">poojan.turakhia@gmail.com</span></a>
+                    </div>
+          </li>
+            <li>
+                <a class="subheader"><p class="material-icons white-text">DATA ANALYTICS</p></a>
+            </li>
+            <br><br>
+            <li>
+                <a href="#myChart1" class="white-text"><i class="material-icons white-text">show_chart</i>First Link</a>
+            </li>
+          <li>
+                <div class="divider blue darken-4"></div>
+            </li>
+            <li>
+                <a href="#myChart2" class="white-text"><i class="material-icons white-text">equalizer</i>Second Link</a>
+            </li>
+          <li>
+                <div class="divider blue darken-4"></div>
+            </li>
+            <li>
+                <a href="#myChart3" class="white-text"><i class="material-icons white-text">multiline_chart</i>Third Link</a>
+            </li>
+          <li>
+                <div class="divider blue darken-4"></div>
+            </li>
+            <li>
+                <a href="#" class="white-text"><i class="material-icons white-text">pie_chart</i>Fourth Link</a>
+            </li>
+            <li>
+                <div class="divider blue darken-4"></div>
+            </li>
+
+
+{#           <ul class="collapsible">#}
+{#                <li>#}
+{#                  <div class="collapsible-header rotate waves-block">First Collapse#}
+{#                      <i class="material-icons chevron">chevron_left</i>#}
+{#                  </div>#}
+{#                  <div class="collapsible-body">#}
+{#               <ul>#}
+{#                       <li>#}
+{#                            <a href="#"><i class="material-icons">show_chart</i>First Link</a>#}
+{#                        </li>#}
+{#                        <li>#}
+{#                            <a href="#"><i class="material-icons">equalizer</i>Second Link</a>#}
+{#                        </li>#}
+{#               </ul>#}
+{#                  </div>#}
+{#                </li>#}
+{#          </ul>#}
+
+
+      </ul>
+
+    </header>
+
+    <main>
+
         <div class="row">
-            <div class="col-md-12 col-xs-12" style="margin-top:30px;margin-bottom: 30px">
-                <h3 style="text-align: center">
-                    <a href="{% url "json" %}" target="_blank" style="text-decoration: none !important;">
-                        Sample Graph
-                    </a>
-                </h3><br>
-                <div style="display: flex;justify-content: center;align-items: center;">
-                    <canvas id="myChart" width="1000"></canvas>
+            <div class="col l3 blue"></div>
+
+            <div class="col m12 l9 green" style="margin-left: -30px">
+              <div style="position: relative;">
+                <div class="col s12 center" style="position: absolute; left:0; top: 20px;">
+                  <canvas id="myChart1" width="1000" height="500" style="background-color: white"></canvas><br>
+                  <canvas id="myChart2" width="1000" height="500" style="background-color: white"></canvas><br>
+                  <canvas id="myChart3" width="1000" height="500" style="background-color: white"></canvas><br>
                 </div>
+              </div>
             </div>
+
         </div>
-    </div><br><br>
+    </main>
+
+
+
 
     <script type="text/javascript" src="{% static 'js/jquery-3.3.1.js' %}"></script>
     <script type="text/javascript" src="{% static 'js/Chart.min.js' %}"></script>
-    <script type="text/javascript">
-        $.get('{% url "json" %}', function(data) {
-                let ctx = $("#myChart").get(0).getContext("2d");
+    <script type="text/javascript" src="{% static 'js/materialize.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/materialize.min.js' %}"></script>
+    <script>
+        M.AutoInit();
+        $(document).ready(function(){
+          $(".rotate").click(function(){
+             $("#one").toggleClass("down") ;
+          })
+        });
+    </script>
+    <script>
+        $.get('{% url "json1" %}', function(data) {
+                let ctx = $("#myChart1").get(0).getContext("2d");
+                new Chart(ctx, {
+                type: 'bar', data: data
+            });
+        });
+        $.get('{% url "json2" %}', function(data) {
+                let ctx = $("#myChart2").get(0).getContext("2d");
                 new Chart(ctx, {
                 type: 'line', data: data
             });
         });
+         $.get('{% url "json3" %}', function(data) {
+                let ctx = $("#myChart3").get(0).getContext("2d");
+                new Chart(ctx, {
+                type: 'polarArea', data: data
+            });
+        });
     </script>
-</body>
+ </body>
 </html>

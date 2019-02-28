@@ -25,10 +25,11 @@ SECRET_KEY = '0=03ow@@y1s!cra=bm%1x**qe%x%ni2a1fq+78*t=l8obnvs$8'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+]
 
 LOGIN_REDIRECT_URL = 'dashboard'
-LOGOUT_REDIRECT_URL = 'bye'
+LOGOUT_REDIRECT_URL = 'signout'
 
 
 # Application definition

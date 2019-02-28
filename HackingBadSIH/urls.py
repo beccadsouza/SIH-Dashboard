@@ -5,15 +5,16 @@ from django.conf.urls import url, include
 from django.conf.urls.static import static
 from django.views.generic import RedirectView
 from . import views
+from Graphs import dummy
 
 urlpatterns = [
 	url(r'admin/', admin.site.urls),
 	url(r'accounts/', include('django.contrib.auth.urls')),
 	url(r'^dashboard/', views.dashboard, name='dashboard'),
-	url(r'^bye/', views.bye, name='bye'),
-	url(r'^json1/$', views.json1(), name='json1'),
-	url(r'^json2/$', views.json2(), name='json2'),
-	url(r'^json3/$', views.json3(), name='json3'),
+	url(r'^signout/', views.signout, name='signout'),
+	url(r'^json1/', dummy.json1(), name='json1'),
+	url(r'^json2/', dummy.json2(), name='json2'),
+	url(r'^json3/', dummy.json3(), name='json3'),
 	url(r'^', RedirectView.as_view(pattern_name='dashboard', permanent=False)),
 
 ]
